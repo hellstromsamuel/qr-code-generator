@@ -6,7 +6,11 @@ import useContainerWidth from "@/hooks/use-container-width";
 import useScaledLogoDimensions from "@/hooks/use-scaled-logo-dimentions";
 import useTailwindBreakpoint from "@/hooks/use-tailwind-breakpoint";
 
-function QrCodePreview() {
+interface Props {
+  htmlRef: React.RefObject<HTMLDivElement | null>;
+}
+
+function QrCodePreview({ htmlRef }: Props) {
   const { qrCode } = useQrCodeStore();
   const { title, description, url, logoUrl } = qrCode;
 
@@ -20,9 +24,12 @@ function QrCodePreview() {
   );
 
   return (
-    <div className="flex flex-col gap-4 text-center aspect-[210/297] w-full max-w-full">
-      <div className="space-y-2">
-        <div className="font-semibold text-4xl">
+    <div
+      ref={htmlRef}
+      className="flex flex-col gap-4 text-center aspect-[210/297] w-full max-w-full"
+    >
+      <div>
+        <div className="font-semibold text-3xl">
           {title ? (
             <h3 className="py-1">{title}</h3>
           ) : (
@@ -30,7 +37,7 @@ function QrCodePreview() {
           )}
         </div>
 
-        <div className="text-xl">
+        <div className="text-lg">
           {description ? (
             <p className="py-1">{description}</p>
           ) : (
