@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import useQrCodeStore from "@/stores/use-qr-code-store";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import { Check, Edit, RefreshCw } from "lucide-react";
+import { Edit, RefreshCw } from "lucide-react";
 import { EXAMPLE_QR_CODE } from "@/types/qr-code";
 
 function QrCodeForm() {
@@ -11,7 +11,9 @@ function QrCodeForm() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log("form submitted", qrCode);
+    // console.log("form submitted", qrCode);
+
+    // TODO: Add save input submit handler later
   }
 
   function resetForm() {
@@ -80,10 +82,11 @@ function QrCodeForm() {
         <p className="text-sm text-muted-foreground">{`For example: ${EXAMPLE_QR_CODE.url}`}</p>
       </div>
 
-      <Button type="submit">
+      {/* TODO: Add save input button later */}
+      {/* <Button type="submit">
         <Check />
         Save input
-      </Button>
+      </Button> */}
     </form>
   );
 }
