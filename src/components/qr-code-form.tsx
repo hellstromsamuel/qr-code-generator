@@ -3,17 +3,18 @@ import { Button } from "./ui/button";
 import useQrCodeStore from "@/stores/use-qr-code-store";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import { Edit, RefreshCw } from "lucide-react";
+import { Check, Edit, RefreshCw } from "lucide-react";
 import { EXAMPLE_QR_CODE } from "@/types/qr-code";
+import { LogoUploadField } from "./form/logo-upload-field";
 
 function QrCodeForm() {
   const { qrCode, setQrCode } = useQrCodeStore();
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // console.log("form submitted", qrCode);
+    console.log("Save QR code submitted", qrCode);
 
-    // TODO: Add save input submit handler later
+    // TODO: Add save QR code submit handler later
   }
 
   function resetForm() {
@@ -32,11 +33,21 @@ function QrCodeForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div className="grid grid-cols-2 gap-2">
-        <Button type="button" variant="outline" onClick={useExample}>
+        <Button
+          type="button"
+          variant="outline"
+          tooltip="Use example QR code"
+          onClick={useExample}
+        >
           <Edit />
           Use example
         </Button>
-        <Button type="button" variant="outline" onClick={resetForm}>
+        <Button
+          type="button"
+          variant="outline"
+          tooltip="Reset all form fields"
+          onClick={resetForm}
+        >
           <RefreshCw />
           Reset
         </Button>
@@ -82,11 +93,16 @@ function QrCodeForm() {
         <p className="text-sm text-muted-foreground">{`For example: ${EXAMPLE_QR_CODE.url}`}</p>
       </div>
 
-      {/* TODO: Add save input button later */}
-      {/* <Button type="submit">
+      <div className="space-y-2">
+        <Label htmlFor="logo">Logo</Label>
+        <LogoUploadField />
+      </div>
+
+      {/* TODO: Add save QR code input handler later */}
+      <Button type="submit" disabled={true} tooltip="Save QR code">
         <Check />
-        Save input
-      </Button> */}
+        Save QR code
+      </Button>
     </form>
   );
 }
