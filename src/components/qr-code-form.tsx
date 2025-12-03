@@ -11,7 +11,7 @@ function QrCodeForm() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(qrCode);
+    console.log("form submitted", qrCode);
   }
 
   function resetForm() {
@@ -30,11 +30,11 @@ function QrCodeForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div className="grid grid-cols-2 gap-2">
-        <Button variant="outline" size="sm" onClick={useExample}>
+        <Button type="button" variant="outline" onClick={useExample}>
           <Edit />
           Use example
         </Button>
-        <Button variant="destructive" size="sm" onClick={resetForm}>
+        <Button type="button" variant="outline" onClick={resetForm}>
           <RefreshCw />
           Reset
         </Button>
