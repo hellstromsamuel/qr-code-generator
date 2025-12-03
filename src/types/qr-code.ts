@@ -7,7 +7,7 @@ export type QrCode = {
 
 export const EXAMPLE_QR_CODE: QrCode = {
   title: "VG",
-  description: "Les mer på VG.no",
+  description: "Read news on VG.no",
   url: "https://vg.no",
   logoUrl: "/vg-logo.svg",
 };
