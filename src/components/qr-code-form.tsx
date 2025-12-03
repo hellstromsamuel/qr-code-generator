@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import useQrCodeStore from "@/stores/use-qr-code-store";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import { Check, Copy, Download, Edit, RefreshCw } from "lucide-react";
+import { Check, Edit, RefreshCw } from "lucide-react";
 import { EXAMPLE_QR_CODE } from "@/types/qr-code";
 
 function QrCodeForm() {
