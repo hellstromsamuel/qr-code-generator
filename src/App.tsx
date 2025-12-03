@@ -19,10 +19,17 @@ function App() {
 
         <section className="text-left space-y-4">
           <h2 className="text-xl font-semibold">Preview</h2>
-          <Button type="button" variant="default" onClick={handleDownload}>
+
+          <Button
+            type="button"
+            variant="default"
+            tooltip="Download QR code as PDF"
+            onClick={handleDownload}
+          >
             <Download />
             Download PDF
           </Button>
+
           <div className="border rounded-sm p-4 w-full overflow-hidden">
             <QrCodePreview htmlRef={htmlRef} />
           </div>
